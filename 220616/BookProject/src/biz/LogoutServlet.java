@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import vo.MemberVO;
+
 @WebServlet("/logout")
 public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -20,11 +22,12 @@ public class LogoutServlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		HttpSession session = request.getSession();
-		String id = (String)session.getAttribute("loginOK");
 		
-		if(id != null) {
+		MemberVO vo = (MemberVO)session.getAttribute("loginOK");
+		
+		if(vo != null) {
 			session.removeAttribute("loginOK");
-			response.sendRedirect("/login/login.jsp");
+			response.sendRedirect("/index.jsp");
 		}
 	}
 

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="/menu.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,17 +60,9 @@ button {
 <body>
 	<div class="wrapper">
 		<h2>YangYoung 로그인 페이지</h2>
-		
-<%
-		String id = (String)session.getAttribute("loginOK");
-		if(id != null) {
-%>
-			<b><%= id %></b>님 로그인 상태입니다.
-			<a href="/logout"><button>로그아웃</button></a>
-<% 
-		} else {
-%>
-	<form action="/login"  method="get">
+<%--접속중인 사용자 ID, 로그아웃 기능을 menu.jsp에 표시하므로 이곳에서는 로그인 화면만 제공함. --%>
+
+	<form action="/login" method="get">
 		<div class="login_container">
 			<label><b>User ID</b></label>
 			<input type="text" placeholder="Enter UserID" name="id">
@@ -80,9 +73,8 @@ button {
 			<a href="#">회원가입</a>
 		</div>
 	</form>
-<% 	
-		}
-%>
+
 	</div>
+<%@ include file="/footer.jsp" %>
 </body>
 </html>

@@ -59,11 +59,22 @@
 </head>
 <body>
 	<div id="menu">
-		<a href="./index.jsp">처음화면</a>
-		<a href="./login/login.jsp">로그인화면</a>
-		<a href="#">도서 등록</a>
-		<a href="#">도서 목록</a>
-		<a href="#">로그아웃</a>
+		<a href="/index.jsp">처음화면</a>
+<%
+	MemberVO vo = (MemberVO)session.getAttribute("loginOK");
+	if (vo == null) {
+%>
+		<a href="/login/login.jsp">로그인화면</a>
+<%
+	} else {
+%>
+		<a href="/book/bookInsert.jsp">도서 등록</a>
+		<a href="/listBook">도서 목록</a>
+		<a href="/logout">로그아웃</a>
+		<b>로그인 사용자 : <%= vo.getUserId() %></b>
+<%
+	}
+%>
 	</div>
 	<div class="container"></div>
 </body>
