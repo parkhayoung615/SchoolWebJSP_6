@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.BookDAO;
 
-@WebServlet("/DeleteBookServlet")
+@WebServlet("/deleteBook")
 public class DeleteBookServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
       
